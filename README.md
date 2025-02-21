@@ -1,4 +1,4 @@
-# Repositório de Scripts de Ataque
+# Repositório de Segurança Ofensiva
 
 Este repositório contém uma coleção de scripts e ferramentas desenvolvidas para testes e análises de cibersegurança.
 
