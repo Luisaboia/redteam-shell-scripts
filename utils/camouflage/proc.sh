@@ -1,9 +1,5 @@
 #!/bin/bash
 #
-# Este script cria uma cópia de um arquivo com um nome aleatório e oculto (começando com .),
-# mantendo o arquivo original intacto. Útil para ocultar arquivos importantes mantendo uma
-# cópia segura.
-#
 # Uso: ./proc.sh <nome_do_arquivo>
 #
 # Argumentos:
@@ -25,7 +21,7 @@ VERMELHO='\033[1;31m'
 NEGRITO='\033[1m'
 SC='\033[0m'
 
-# Verifica se um arquivo foi fornecido
+# verifica arquivo input
 if [ $# -ne 1 ]; then
   echo -e "${VERMELHO}Erro: Por favor, forneça um arquivo para camuflar${SC}"
   echo -e "${NEGRITO}Uso: $0 <nome_do_arquivo>${SC}"
@@ -34,13 +30,13 @@ fi
 
 arquivo="$1"
 
-# Verifica se o arquivo existe
+# verifica arquivo
 if [ ! -f "$arquivo" ]; then
   echo -e "${VERMELHO}Erro: Arquivo '$arquivo' não encontrado${SC}"
   exit 1
 fi
 
-# Cria uma cópia oculta com nome aleatório
+# criar cópia
 nome_aleatorio=".$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)"
 cp "$arquivo" "$nome_aleatorio"
 
